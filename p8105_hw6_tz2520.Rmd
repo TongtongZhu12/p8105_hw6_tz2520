@@ -72,7 +72,22 @@ boot_straps =
   
 ```
 
+### Distribution of r square
 
+```{r}
+boot_straps %>% 
+  ggplot(aes(x = r.squared)) +
+  geom_density() +
+  labs(
+    title = "Distribution of r squared estimates",
+    x = "r squared estimate"
+  )
+  
+```
+
+**Description of r squared estimates** 
+
+This distribution of r squared estimates appears to follow a normal distribution, centered around 0.905.
 
 
 
