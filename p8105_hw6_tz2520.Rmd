@@ -233,4 +233,24 @@ cities_logis_df %>%
 
 Most of the cities have estimated OR less than 1, indicating homicides in which the victim is male are less like to be resolved than those in which the victim is female. Among all cities, New York, NY has the lowest estimated adjusted OR with a relatively narrow 95% CI, but Albuquerque, NM has the highest estimated adjusted OR with a relatively broad 95% CI.
 
+## Problem 3
+
+### Load and clean birthweigth dataset
+
+```{r}
+birthweight_df =
+  read_csv("./data/birthweight.csv", show_col_types = FALSE) %>% 
+  mutate(
+    babysex = as.factor(babysex),
+    frace = as.factor(frace),
+    malform = as.factor(malform),
+    mrace = as.factor(mrace)) 
+
+sum(is.na(birthweight_df))
+
+```
+
+**Description of dataset**
+
+The`birthweight` dataset contains `r nrow(birthweight_df)` observations and `r ncol(birthweight_df)` variables. There is no missing values.
 
