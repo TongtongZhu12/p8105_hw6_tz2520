@@ -50,7 +50,7 @@ weather_df =
 ```{r}
 boot_straps = 
   weather_df %>%
-  bootstrap(n = 100, id = "strap_num") %>% 
+  bootstrap(n = 5000, id = "strap_num") %>% 
   mutate(
     models = map(.x = strap, ~lm(tmax ~ tmin, data = .x)),
     results_r = map(models, broom::glance),
@@ -87,7 +87,7 @@ boot_straps %>%
 
 **Description of r squared estimates** 
 
-This distribution of r squared estimates appears to follow a normal distribution, centered around 0.905.
+This distribution of r squared estimates appears to follow a normal distribution, centered around 0.91.
 
 ### Distribution of log beta product
 
@@ -104,7 +104,7 @@ boot_straps %>%
 
 **Description of log beta product**
 
-This distribution of log beta product appears to follow a normal distribution, centered around 2.02.
+This distribution of log beta product appears to follow a normal distribution, centered around 2.01.
 
 ### 95% Confidence interval for r squared
 
