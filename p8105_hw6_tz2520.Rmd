@@ -269,7 +269,20 @@ summary(step_model)
 
 My proposed model starts with all predictors in the model (full_model), and then perform the stepwise regression to choose the best model by AIC. It return my final model (step_model). The final model `step_model` includes 11 predictors, `babysex`, `bhead`, `blength`, `delwt`, `fincome`, `gaweeks`, `mheight`, `mrace`, `parity`, `ppwt`, `smoken`.
 
+### Make a plot of model residuals against fitted values
 
+```{r}
+birthweight_df %>% 
+  add_predictions(step_model) %>% 
+  add_residuals(step_model) %>% 
+  ggplot(aes(x = pred, y = resid)) +
+  geom_point(alpha = 0.2) +
+  labs(
+    title = "Residuals vs. Fitted Values", 
+    x = "Fitted values", 
+    y = "Residuals")
+
+```
 
 
 
