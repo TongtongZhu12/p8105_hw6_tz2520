@@ -1,0 +1,6 @@
+---
+title: "Homework 6"
+auhor: "Tongtong Zhu"
+date: "2022-12-1"
+output: github_document
+---
