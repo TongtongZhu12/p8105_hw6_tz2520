@@ -254,3 +254,22 @@ sum(is.na(birthweight_df))
 
 The`birthweight` dataset contains `r nrow(birthweight_df)` observations and `r ncol(birthweight_df)` variables. There is no missing values.
 
+### Fit my model using backward stepwise selection
+
+```{r}
+full_model =
+  lm(bwt ~., data = birthweight_df)
+
+step_model =
+  MASS::stepAIC(full_model, direction = "backward", trace = FALSE)
+summary(step_model)
+```
+
+**Description of modeling process**
+
+My proposed model starts with all predictors in the model (full_model), and then perform the stepwise regression to choose the best model by AIC. It return my final model (step_model). The final model `step_model` includes 11 predictors, `babysex`, `bhead`, `blength`, `delwt`, `fincome`, `gaweeks`, `mheight`, `mrace`, `parity`, `ppwt`, `smoken`.
+
+
+
+
+
