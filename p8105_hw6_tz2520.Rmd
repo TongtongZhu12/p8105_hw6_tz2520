@@ -241,12 +241,13 @@ Most of the cities have estimated OR less than 1, indicating homicides in which 
 birthweight_df =
   read_csv("./data/birthweight.csv", show_col_types = FALSE) %>% 
   mutate(
-    babysex = as.factor(babysex),
-    frace = as.factor(frace),
-    malform = as.factor(malform),
-    mrace = as.factor(mrace)) 
+    babysex = factor(babysex, levels = c(1,2), labels = c("male","female")),
+    frace = factor(frace, levels = c(1,2,3,4,8,9), labels = c("white","black","asian","puerto rican","other","unknown")),
+    malform = factor(malform, levels = c(0,1), labels = c("absent","present")),
+    mrace = factor(mrace, levels = c(1,2,3,4,8), labels = c("white","black","asian","puerto rican","other"))
+  )
 
-sum(is.na(birthweight_df))
+skimr::skim(birthweight_df)
 
 ```
 
